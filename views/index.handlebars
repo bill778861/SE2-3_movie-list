@@ -1,0 +1,41 @@
+<div class="container mt-5">
+  <!-- search bar -->
+  <div class="row" id="search-bar">
+    <div class="col-12">
+      <!-- 當表單發生提交事件時，會導向action的值所指向的路由路徑。這裡的form沒有指定method的值，故method預設為"get"，即向伺服器發出請求的方法類型。 -->
+      <form action="/search">
+        <div class="input-group mb-3">
+          <!-- placeholder:當畫面input欄位未輸入任何字元時顯示的提示文字 -->
+          <!-- name: 當input的value被提交時，該value會被放入req.query物件中成為查詢字串query string，這裡name的值為該value的屬性名稱 -->
+          <!-- value: input被鍵入的值，在網頁初始時，若沒有指定value的值，則value預設為空字串 -->
+          <input type="text" name="keyword" class="form-control" placeholder="Enter movie name to search..."
+            aria-label="Movie Name..." aria-describedby="search-button" value="{{keyword}}">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary" type="submit" id="search-button">Search</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- movie list -->
+  <div class="row" id="data-panel">
+
+    <!-- each迴圈： handlebars的功能，以陣列movies的元素，索引值由小至大套入each首尾標籤之間的內容進行迭代。this代表陣列的元素，迭代次數為陣列長度。 -->
+    {{#each movies}}
+    <!-- 兩對大括號: handlebars的功能，可代入變數，沒有解析HTML標籤的功能 -->
+    <div class="col-sm-3">
+      <a href="/movies/{{this.id}}" class="text-secondary">
+        <div class="card mb-2">
+          <img class="card-img-top" src="https://movie-list.alphacamp.io/posters/{{this.image}}"
+            alt="Card image cap">
+          <div class="card-body movie-item-body">
+            <h6 class="card-title">{{this.title}}</h6>
+          </div>
+        </div>
+      </a>
+    </div>
+    {{/each}}
+
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Movie List</title>
+  <!--載入bootstrap的CSS樣式 -->
+  <link rel="stylesheet" href="/stylesheets/bootstrap.css">
+  <!--可在這裡載入自己的CSS樣式 -->
+</head>
+<body>
+  <!-- navigation -->
+  <nav class="navbar navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="/">Movie List</a>
+    </div>
+  </nav>
+
+  <!-- partial template -->
+  <!-- 三對大括號: handlebars的功能，可代入變數，有解析HTML標籤的功能 -->
+  {{{body}}}
+  
+
+  <!-- 依序載入jQuery, popper.js以及bootstrap.js -->
+  <script src="/javascripts/popper.js"></script>
+  <script src="/javascripts/bootstrap.js"></script>
+  <!--可在這裡載入自己的js檔案 -->
+</body>
+</html>
